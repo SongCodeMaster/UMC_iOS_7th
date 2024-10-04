@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FFC78CA52CAD4CF700FE1D9C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CA42CAD4CF700FE1D9C /* BaseViewController.swift */; };
+		FFC78CA92CADAFDB00FE1D9C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CA82CADAFDB00FE1D9C /* MyPageViewController.swift */; };
+		FFC78CAC2CADB0EB00FE1D9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CAB2CADB0EB00FE1D9C /* HomeViewController.swift */; };
+		FFC78CAE2CADB10100FE1D9C /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CAD2CADB10100FE1D9C /* StyleViewController.swift */; };
+		FFC78CB02CADB11200FE1D9C /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CAF2CADB11200FE1D9C /* ShopViewController.swift */; };
+		FFC78CB22CADB12600FE1D9C /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CB12CADB12600FE1D9C /* SavedViewController.swift */; };
+		FFC78CC72CADC04700FE1D9C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFC78CC62CADC04700FE1D9C /* SnapKit */; };
+		FFC78CC92CADDB3F00FE1D9C /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CC82CADDB3F00FE1D9C /* MyPageView.swift */; };
+		FFC78CCB2CAFE55600FE1D9C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CCA2CAFE55600FE1D9C /* ProfileView.swift */; };
+		FFC78CCF2CAFE8D000FE1D9C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CCE2CAFE8D000FE1D9C /* ProfileViewController.swift */; };
 		FFE848B32CA6B13A0092AD15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE848B22CA6B13A0092AD15 /* AppDelegate.swift */; };
 		FFE848B52CA6B13A0092AD15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE848B42CA6B13A0092AD15 /* SceneDelegate.swift */; };
 		FFE848B72CA6B13A0092AD15 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE848B62CA6B13A0092AD15 /* LoginViewController.swift */; };
@@ -16,6 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FFC78CA42CAD4CF700FE1D9C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FFC78CA82CADAFDB00FE1D9C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		FFC78CAB2CADB0EB00FE1D9C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FFC78CAD2CADB10100FE1D9C /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
+		FFC78CAF2CADB11200FE1D9C /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		FFC78CB12CADB12600FE1D9C /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FFC78CC82CADDB3F00FE1D9C /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		FFC78CCA2CAFE55600FE1D9C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FFC78CCE2CAFE8D000FE1D9C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFE848AF2CA6B13A0092AD15 /* KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE848B22CA6B13A0092AD15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE848B42CA6B13A0092AD15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC78CC72CADC04700FE1D9C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				FFE848CC2CA6B20E0092AD15 /* LoginView.swift */,
+				FFC78CC82CADDB3F00FE1D9C /* MyPageView.swift */,
+				FFC78CCA2CAFE55600FE1D9C /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -87,6 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				FFE848B62CA6B13A0092AD15 /* LoginViewController.swift */,
+				FFC78CAB2CADB0EB00FE1D9C /* HomeViewController.swift */,
+				FFC78CAF2CADB11200FE1D9C /* ShopViewController.swift */,
+				FFC78CB12CADB12600FE1D9C /* SavedViewController.swift */,
+				FFC78CAD2CADB10100FE1D9C /* StyleViewController.swift */,
+				FFC78CA82CADAFDB00FE1D9C /* MyPageViewController.swift */,
+				FFC78CCE2CAFE8D000FE1D9C /* ProfileViewController.swift */,
+				FFC78CA42CAD4CF700FE1D9C /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +164,9 @@
 				Base,
 			);
 			mainGroup = FFE848A62CA6B13A0092AD15;
+			packageReferences = (
+				FFC78CC52CADC04700FE1D9C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FFE848B02CA6B13A0092AD15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,9 +194,18 @@
 			files = (
 				FFE848B72CA6B13A0092AD15 /* LoginViewController.swift in Sources */,
 				FFE848C92CA6B1CF0092AD15 /* LoginModel.swift in Sources */,
+				FFC78CB02CADB11200FE1D9C /* ShopViewController.swift in Sources */,
+				FFC78CA92CADAFDB00FE1D9C /* MyPageViewController.swift in Sources */,
+				FFC78CCF2CAFE8D000FE1D9C /* ProfileViewController.swift in Sources */,
+				FFC78CAE2CADB10100FE1D9C /* StyleViewController.swift in Sources */,
+				FFC78CC92CADDB3F00FE1D9C /* MyPageView.swift in Sources */,
+				FFC78CAC2CADB0EB00FE1D9C /* HomeViewController.swift in Sources */,
 				FFE848B32CA6B13A0092AD15 /* AppDelegate.swift in Sources */,
 				FFE848CD2CA6B20E0092AD15 /* LoginView.swift in Sources */,
+				FFC78CB22CADB12600FE1D9C /* SavedViewController.swift in Sources */,
 				FFE848B52CA6B13A0092AD15 /* SceneDelegate.swift in Sources */,
+				FFC78CA52CAD4CF700FE1D9C /* BaseViewController.swift in Sources */,
+				FFC78CCB2CAFE55600FE1D9C /* ProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFC78CC52CADC04700FE1D9C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFC78CC62CADC04700FE1D9C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFC78CC52CADC04700FE1D9C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFE848A72CA6B13A0092AD15 /* Project object */;
 }

@@ -6,6 +6,6 @@
 //
 import Foundation
 struct LoginModel {
-    var login: String
-    var passWord: String
+    var id: String
+    var pwd: String
 }

@@ -1,158 +1,252 @@
 //
 //  LoginView.swift
-//  KREAM
+//  KreamApp
 //
-//  Created by 송승윤 on 9/27/24.
+//  Created by KKM on 9/27/24.
 //
+
 import UIKit
+
 class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.addComponents()
+        self.addComponents()  // 필요한 UI 컴포넌트 추가
+        self.setupConstraints()  // UI 요소들의 제약 조건 설정
+        self.setupActions()  // 텍스트 필드 변경 감지
     }
     
+    // UI 요소들을 뷰에 추가하는 메서드
+    private func addComponents() {
+        self.addSubview(kreamImageView)
+        self.addSubview(mailLabel)
+        self.addSubview(mailTextField)
+        self.addSubview(passwordLabel)
+        self.addSubview(passwordTextField)
+        self.addSubview(loginButton)
+        self.addSubview(kakaoLoginButton)
+        self.addSubview(appleLoginButton)
+    }
+    
+    // 오토레이아웃 설정 메서드
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            kreamImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126),
+            kreamImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            kreamImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 53),
+            kreamImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -53),
+            
+            mailLabel.topAnchor.constraint(equalTo: kreamImageView.bottomAnchor, constant: 87),
+            mailLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 45),
+            mailLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -45),
+            
+            mailTextField.topAnchor.constraint(equalTo: mailLabel.bottomAnchor, constant: 8),
+            mailTextField.leftAnchor.constraint(equalTo: mailLabel.leftAnchor),
+            mailTextField.rightAnchor.constraint(equalTo: mailLabel.rightAnchor),
+            mailTextField.heightAnchor.constraint(equalToConstant: 34),
+            
+            passwordLabel.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 17),
+            passwordLabel.leftAnchor.constraint(equalTo: mailLabel.leftAnchor),
+            passwordLabel.rightAnchor.constraint(equalTo: mailLabel.rightAnchor),
+            
+            passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 8),
+            passwordTextField.leftAnchor.constraint(equalTo: mailLabel.leftAnchor),
+            passwordTextField.rightAnchor.constraint(equalTo: mailLabel.rightAnchor),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 34),
+            
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 17),
+            loginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loginButton.leftAnchor.constraint(equalTo: mailLabel.leftAnchor),
+            loginButton.rightAnchor.constraint(equalTo: mailLabel.rightAnchor),
+            loginButton.heightAnchor.constraint(equalToConstant: 38),
+            
+            kakaoLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 87),
+            kakaoLoginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            kakaoLoginButton.leftAnchor.constraint(equalTo: mailLabel.leftAnchor),
+            kakaoLoginButton.rightAnchor.constraint(equalTo: mailLabel.rightAnchor),
+            kakaoLoginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            appleLoginButton.topAnchor.constraint(equalTo: kakaoLoginButton.bottomAnchor, constant: 22),
+            appleLoginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            appleLoginButton.widthAnchor.constraint(equalTo: mailLabel.widthAnchor),
+            appleLoginButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    // 입력된 이메일과 비밀번호가 유효한지 확인하고, 로그인 버튼의 상태를 업데이트
+    @objc private func textFieldsDidChange() {
+        let isEmailValid = isValidEmail(mailTextField.text ?? "")
+        let isPasswordValid = isValidPassword(passwordTextField.text ?? "")
+        
+        // 이메일과 비밀번호가 유효할 경우 로그인 버튼의 배경색을 검정색으로 변경
+        if isEmailValid && isPasswordValid {
+            loginButton.backgroundColor = .black
+        } else {
+            loginButton.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)  // 기본 회색
+        }
+    }
+    
+    // 이메일과 비밀번호 입력값을 변경 감지
+    private func setupActions() {
+        mailTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+    }
+    
+    // 이메일 유효성 검사 함수
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
+    }
+    
+    // 비밀번호 유효성 검사 함수
+    private func isValidPassword(_ password: String) -> Bool {
+        return !password.isEmpty
+    }
+    
+    // NSCoder로 초기화할 때 필요한 메서드
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //로고 이미지
-    private let logoImageView: UIImageView = {
+    
+    // Kream 로고를 위한 UIImageView
+    public lazy var kreamImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "KreamLogo.png")
-        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "KreamLogo")  // "kreamLogo" 이미지를 로드
+        imageView.contentMode = .scaleAspectFit  // 이미지가 적절한 비율로 맞춰지도록 설정
+        imageView.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
         return imageView
     }()
-    //이메일 텍스트라벨
-    private let emailLabel: UILabel = {
+    
+    // 이메일 레이블
+    public lazy var mailLabel: UILabel = {
         let label = UILabel()
         label.text = "이메일 주소"
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
         return label
     }()
     
-    //이메일 텍스트필드
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "예)kream@kream.co.kr"
-        textField.borderStyle = .roundedRect
-        textField.keyboardType = .emailAddress
+    // 이메일 텍스트 필드
+    public lazy var mailTextField: UITextField = {
+        let textField = PaddedTextField()
+        textField.borderStyle = .none  // 기본 테두리 스타일 제거
+        textField.placeholder = "예) kream@kream.co.kr"
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.layer.cornerRadius = 15  // 둥근 모서리
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.textPadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)  // 여백 설정
+        textField.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
         
-        //모서리를 더 둥글게 설정해보자
-        textField.layer.cornerRadius = 15 // 값이 클수록 둥글게..!
-        textField.layer.borderWidth = 1 // 테두리 두께 설정
-        textField.layer.borderColor = UIColor.lightGray.cgColor // 테두리 색상
-        textField.clipsToBounds = true // cornerRadius가 적용되도록
+        // 이메일 입력 시 자동 대문자화를 없앰
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .emailAddress
+        textField.autocorrectionType = .no
         return textField
     }()
     
-    //비밀번호 텍스트라벨
-    private let passwordLabel: UILabel = {
+    // 비밀번호 라벨
+    public lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "비밀번호"
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
         return label
     }()
     
-    //비밀번호 텍스트필드
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
+    // 비밀번호 텍스트 필드
+    public lazy var passwordTextField: UITextField = {
+        let textField = PaddedTextField()
+        textField.borderStyle = .none  // 기본 테두리 스타일 제거
         textField.placeholder = "비밀번호를 입력해주세요"
-        textField.borderStyle = .roundedRect
-        textField.keyboardType = .emailAddress
-        //모서리를 더 둥글게 설정해보자
-        textField.layer.cornerRadius = 15 // 값이 클수록 둥글게..!
-        textField.layer.borderWidth = 1 // 테두리 두께 설정
-        textField.layer.borderColor = UIColor.lightGray.cgColor // 테두리 색상
-        textField.clipsToBounds = true // cornerRadius가 적용되도록
+        textField.isSecureTextEntry = true  // 비밀번호 입력
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.layer.cornerRadius = 15
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.textPadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
         return textField
     }()
     
     // 로그인 버튼
-    private let loginButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("로그인", for: .normal)
-        button.backgroundColor = UIColor.lightGray
-        button.layer.cornerRadius = 8
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        return button
+    public lazy var loginButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("로그인", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)  // 초기 회색
+        btn.layer.cornerRadius = 8
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
     }()
     
-    // 소셜 로그인 버튼
-    private let socialLogin: UIButton = {
-        let button = UIButton()
+    // 카카오 로그인 버튼
+    public lazy var kakaoLoginButton: UIButton = {
+        let btn = UIButton(type: .system)
         
-        //버튼에 PNG 이미지 설정하기
-        let buttonImage = UIImage(named: "socialLogin.png")
-        button.setImage(buttonImage, for: .normal)
         
-        // 이미지 크기 조정
-        button.imageView?.contentMode = .scaleAspectFit // 이미지가 버튼에 맞게 비율을 유지하며 조정
-        button.clipsToBounds = true // 모서리 둥글게
-        return button
+        var config = UIButton.Configuration.plain() // plain, filled 등 선택 가능
+        config.title = "카카오로 로그인"
+        config.baseForegroundColor = .black
+        config.baseBackgroundColor = .white
+        config.cornerStyle = .medium // 모서리 둥글기 설정
+        
+        // 이미지 설정
+        config.image = UIImage(named: "kakaoIcon")
+        config.imagePadding = 10 // 텍스트와 이미지 간격 설정
+        config.imagePlacement = .leading // 이미지 위치 (텍스트 앞쪽)
+        
+        btn.configuration = config
+        btn.configurationUpdateHandler = { button in
+            button.configuration?.image = UIImage(named: "kakaoIcon")
+        }
+        btn.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
+        return btn
     }()
     
-    private func addComponents() {
-        // 이미지 뷰를 추가하고 오토레이아웃 설정
-        self.addSubview(logoImageView)
-        self.addSubview(emailLabel)
-        self.addSubview(emailTextField)
-        self.addSubview(passwordLabel)
-        self.addSubview(passwordTextField)
-        self.addSubview(loginButton)
-        self.addSubview(socialLogin)
+    
+    // 애플 로그인 버튼
+    public lazy var appleLoginButton: UIButton = {
+        let btn = UIButton(type: .system)
+        var config = UIButton.Configuration.plain() // plain, filled 등 선택 가능
+        config.title = "Apple로 로그인"
+        config.baseForegroundColor = .black
+        config.baseBackgroundColor = .white
+        config.cornerStyle = .medium // 모서리 둥글기 설정
         
-        //오토레이아웃 설정, 즉 기본프레임 설정을 false로 설정해야됨
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        socialLogin.translatesAutoresizingMaskIntoConstraints = false
+        // 이미지 설정
+        config.image = UIImage(named: "appleIcon")
+        config.imagePadding = 10 // 텍스트와 이미지 간격 설정
+        config.imagePlacement = .leading // 이미지 위치 (텍스트 앞쪽)
         
-        NSLayoutConstraint.activate([
-            // logoImageView를 self 기준으로 오토레이아웃 설정
-            logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor), // 가로 중심
-            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 126), // 상단에서 126pt 간격
-            logoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 53), // 좌측에서 53pt 간격
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -53), // 우측에서 -53pt 간격
-            
-            // emailTextField의 오토레이아웃 설정
-            emailTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 87), // logoImageView 아래에 배치, 간격 87pt
-            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45), // 좌측에서 45pt 간격
-            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -45), // 우측에서 -45pt 간격
-            
-            // emailLabel의 오토레이아웃 설정 (emailTextField 바로 위에 배치, 24pt 간격)
-            emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -8), // emailTextField와 간격 8pt
-            emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor), // emailTextField와 동일한 좌측 정렬
-            emailLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor), // emailTextField와 동일한 우측 정렬
-            
-            // passwordlabel의 오토레이아웃 설정
-            passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 17),
-            passwordLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor), // emailTextField와 동일한 좌측 정렬
-            passwordLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor), // emailTextField와 동일한 우측 정렬
-            
-            //passwordTextfield의 오토레이아웃설정
-            passwordTextField.topAnchor.constraint(equalTo:passwordLabel.bottomAnchor, constant: 8),
-            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor), // emailTextField와 동일한 좌측 정렬
-            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor), // emailTextField와 동일한 우측 정렬
-            
-            // loginButton 오토레이아웃
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 17),
-            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            socialLogin.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 87),
-            socialLogin.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            socialLogin.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
-            socialLogin.heightAnchor.constraint(equalToConstant: 50), // 버튼의 높이를 50으로 설정
-            socialLogin.widthAnchor.constraint(equalToConstant: 1000) // 버튼의 너비를 2000으로 설정
-        ])
+        btn.configuration = config
+        btn.configurationUpdateHandler = { button in
+            button.configuration?.image = UIImage(named: "appleIcon")
+        }
+        btn.translatesAutoresizingMaskIntoConstraints = false  // 오토레이아웃 적용
+        return btn
+    }()
+    
+}
+
+class PaddedTextField: UITextField {
+    var textPadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: textPadding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: textPadding)
+    }
+    
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: textPadding)
     }
 }
