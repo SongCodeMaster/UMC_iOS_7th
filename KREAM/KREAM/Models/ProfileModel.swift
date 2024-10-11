@@ -1,11 +1,12 @@
 //
-//  LoginModel.swift
+//  ProfileModel.swift
 //  KREAM
 //
-//  Created by 송승윤 on 9/27/24.
+//  Created by 송승윤 on 10/11/24.
 //
+
 import Foundation
-class LoginModel {
+class ProfileModel {
     private let userDefaults = UserDefaults.standard
     private let idKey = "userID"
     private let pwdKey = "userPwd"
