@@ -2,7 +2,16 @@ import UIKit
 import Then
 import SnapKit
 
-class HomeView: UIView {
+class HomeView: UIView, UISearchBarDelegate {
+    
+    public var onSearchBarTapped: (() -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .white
+        setupView()
+        setupSeparators()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,13 +83,6 @@ class HomeView: UIView {
         $0.register(HomeCollectionViewCell3.self, forCellWithReuseIdentifier: HomeCollectionViewCell3.identifier)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .white
-        setupView()
-        setupSeparators()
-    }
-    
     // 이미지 뷰
     public lazy var HomeImageView = UIImageView().then {
         $0.image = UIImage(named: "HomeImage")
@@ -95,17 +97,23 @@ class HomeView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    // 검색 text field
-    public lazy var SearchField = PaddedTextField().then {
-        $0.borderStyle = .none
-        $0.placeholder = " 브랜드, 상품, 프로필, 태그 등"
-        $0.font = UIFont.systemFont(ofSize: 16)
-        $0.layer.cornerRadius = 15
-        $0.layer.borderWidth = 1
-        $0.textPadding = UIEdgeInsets(top:0, left: 8, bottom: 0, right: 8)
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.translatesAutoresizingMaskIntoConstraints = false
-    }
+    //MARK: -
+    
+    /// 상단 검색 바
+    public lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        searchBar.barTintColor = .white
+        searchBar.backgroundColor = .clear
+        searchBar.clipsToBounds = true
+        searchBar.layer.cornerRadius = 12
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        
+        /* 돋보기 아이콘 및 여백 제거 */
+        searchBar.searchTextField.leftView = nil
+        return searchBar
+    }()
     
     // Just Dropped 라벨 설정
     public lazy var JustDroppedLabel = UILabel().then{
@@ -167,7 +175,7 @@ class HomeView: UIView {
         scrollView.addSubview(contentView)
         
         // 기존의 모든 콘텐츠를 contentView에 추가
-        [segmentedControl, alertImageView, homeCollectionView, HomeImageView, SearchField,JustDroppedLabel,JustDroppedKorean,HomeCollectionView2,HomeCollectionView3,LookBookTitle,LooBookSubTitle].forEach {
+        [segmentedControl, alertImageView, homeCollectionView, HomeImageView, searchBar,JustDroppedLabel,JustDroppedKorean,HomeCollectionView2,HomeCollectionView3,LookBookTitle,LooBookSubTitle].forEach {
             contentView.addSubview($0)
         }
         
@@ -183,7 +191,7 @@ class HomeView: UIView {
         }
         
         // 개별 콘텐츠의 레이아웃 설정
-        SearchField.snp.makeConstraints {
+        searchBar.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(6)
             $0.leading.equalTo(contentView).offset(16)
             $0.width.equalTo(300)
@@ -197,7 +205,7 @@ class HomeView: UIView {
         }
         
         segmentedControl.snp.makeConstraints {
-            $0.top.equalTo(SearchField.snp.bottom).offset(16)
+            $0.top.equalTo(searchBar.snp.bottom).offset(16)
             $0.horizontalEdges.equalToSuperview().inset(12)
             $0.height.equalTo(60)
         }
@@ -247,6 +255,13 @@ class HomeView: UIView {
             $0.height.equalTo(165)
             $0.bottom.equalToSuperview().offset(-30)
         }
-//        $0.bottom.equalToSuperview().offset(-16) // 스크롤 가능하도록 하단에 여백 추가
+        //        $0.bottom.equalToSuperview().offset(-16) // 스크롤 가능하도록 하단에 여백 추가
     }
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("SearchBar text did begin editing")
+        onSearchBarTapped?()
+    }
+    
 }

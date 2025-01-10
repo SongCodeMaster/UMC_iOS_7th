@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF3CB77F2D2E5E6200006955 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = FF3CB77E2D2E5E6200006955 /* Moya */; };
 		FF6FD3302CF48B93006B8B51 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD32F2CF48B93006B8B51 /* Alamofire */; };
+		FF6FD3332CF633AA006B8B51 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD3322CF633AA006B8B51 /* KakaoSDK */; };
+		FF6FD3352CF633AA006B8B51 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD3342CF633AA006B8B51 /* KakaoSDKAuth */; };
+		FF6FD3372CF633AA006B8B51 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD3362CF633AA006B8B51 /* KakaoSDKCert */; };
+		FF6FD3392CF633AA006B8B51 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD3382CF633AA006B8B51 /* KakaoSDKCertCore */; };
+		FF6FD33B2CF633AA006B8B51 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = FF6FD33A2CF633AA006B8B51 /* KakaoSDKCommon */; };
 		FFC42B7B2CB83DBF000B10F8 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC42B7A2CB83DBF000B10F8 /* SavedView.swift */; };
 		FFC42B7D2CB83DCE000B10F8 /* SavedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC42B7C2CB83DCE000B10F8 /* SavedModel.swift */; };
 		FFC42B7F2CB83E3B000B10F8 /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC42B7E2CB83E3B000B10F8 /* SavedCell.swift */; };
@@ -16,12 +22,11 @@
 		FFC78CB02CADB11200FE1D9C /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CAF2CADB11200FE1D9C /* ShopViewController.swift */; };
 		FFC78CB22CADB12600FE1D9C /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC78CB12CADB12600FE1D9C /* SavedViewController.swift */; };
 		FFC78CC72CADC04700FE1D9C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFC78CC62CADC04700FE1D9C /* SnapKit */; };
-		FFE848B32CA6B13A0092AD15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE848B22CA6B13A0092AD15 /* AppDelegate.swift */; };
-		FFE848B52CA6B13A0092AD15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE848B42CA6B13A0092AD15 /* SceneDelegate.swift */; };
 		FFE848BC2CA6B13B0092AD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE848BB2CA6B13B0092AD15 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF308D122D001E7A009F140E /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 		FFC42B7A2CB83DBF000B10F8 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		FFC42B7C2CB83DCE000B10F8 /* SavedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedModel.swift; sourceTree = "<group>"; };
 		FFC42B7E2CB83E3B000B10F8 /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
@@ -29,19 +34,20 @@
 		FFC78CAF2CADB11200FE1D9C /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		FFC78CB12CADB12600FE1D9C /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		FFE848AF2CA6B13A0092AD15 /* KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFE848B22CA6B13A0092AD15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FFE848B42CA6B13A0092AD15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FFE848BB2CA6B13B0092AD15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFE848C02CA6B13B0092AD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		FF3CB7852D2E632300006955 /* Resouces */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resouces; sourceTree = "<group>"; };
 		FF6FCE062CE724F8006B8B51 /* Purchase */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Purchase; sourceTree = "<group>"; };
 		FF6FCFED2CEB2A1D006B8B51 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 		FFC42AD42CB27701000B10F8 /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
 		FFC42ADA2CB2777B000B10F8 /* Mypage */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Mypage; sourceTree = "<group>"; };
 		FFC42ADB2CB2777D000B10F8 /* BaseView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = BaseView; sourceTree = "<group>"; };
 		FFC42ADC2CB277BD000B10F8 /* Login */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Login; sourceTree = "<group>"; };
+		FFEDA55D2D1DD13D004B10B2 /* App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = App; sourceTree = "<group>"; };
+		FFEDA55E2D1DDD96004B10B2 /* Search */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Search; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,9 +55,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6FD33B2CF633AA006B8B51 /* KakaoSDKCommon in Frameworks */,
 				FF6FD3302CF48B93006B8B51 /* Alamofire in Frameworks */,
+				FF3CB77F2D2E5E6200006955 /* Moya in Frameworks */,
+				FF6FD3332CF633AA006B8B51 /* KakaoSDK in Frameworks */,
 				FFC78CC72CADC04700FE1D9C /* SnapKit in Frameworks */,
+				FF6FD3372CF633AA006B8B51 /* KakaoSDKCert in Frameworks */,
 				FFC42C342CD49077000B10F8 /* Then in Frameworks */,
+				FF6FD3352CF633AA006B8B51 /* KakaoSDKAuth in Frameworks */,
+				FF6FD3392CF633AA006B8B51 /* KakaoSDKCertCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +100,7 @@
 		FFE848A62CA6B13A0092AD15 = {
 			isa = PBXGroup;
 			children = (
+				FF308D122D001E7A009F140E /* secrets.xcconfig */,
 				FFE848B12CA6B13A0092AD15 /* KREAM */,
 				FFE848B02CA6B13A0092AD15 /* Products */,
 			);
@@ -104,6 +117,9 @@
 		FFE848B12CA6B13A0092AD15 /* KREAM */ = {
 			isa = PBXGroup;
 			children = (
+				FF3CB7852D2E632300006955 /* Resouces */,
+				FFEDA55E2D1DDD96004B10B2 /* Search */,
+				FFEDA55D2D1DD13D004B10B2 /* App */,
 				FF6FCFED2CEB2A1D006B8B51 /* Data */,
 				FF6FCE062CE724F8006B8B51 /* Purchase */,
 				FFC42ADC2CB277BD000B10F8 /* Login */,
@@ -113,8 +129,6 @@
 				FFC42AD82CB2772E000B10F8 /* Shop */,
 				FFC42AD72CB2772C000B10F8 /* Style */,
 				FFC42AD42CB27701000B10F8 /* Home */,
-				FFE848B22CA6B13A0092AD15 /* AppDelegate.swift */,
-				FFE848B42CA6B13A0092AD15 /* SceneDelegate.swift */,
 				FFE848BB2CA6B13B0092AD15 /* Assets.xcassets */,
 				FFE848C02CA6B13B0092AD15 /* Info.plist */,
 			);
@@ -137,12 +151,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				FF3CB7852D2E632300006955 /* Resouces */,
 				FF6FCE062CE724F8006B8B51 /* Purchase */,
 				FF6FCFED2CEB2A1D006B8B51 /* Data */,
 				FFC42AD42CB27701000B10F8 /* Home */,
 				FFC42ADA2CB2777B000B10F8 /* Mypage */,
 				FFC42ADB2CB2777D000B10F8 /* BaseView */,
 				FFC42ADC2CB277BD000B10F8 /* Login */,
+				FFEDA55D2D1DD13D004B10B2 /* App */,
+				FFEDA55E2D1DDD96004B10B2 /* Search */,
 			);
 			name = KREAM;
 			productName = KREAM;
@@ -178,6 +195,8 @@
 				FFC78CC52CADC04700FE1D9C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FFC42C322CD49077000B10F8 /* XCRemoteSwiftPackageReference "Then" */,
 				FF6FD32E2CF48B93006B8B51 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				FF3CB77D2D2E5E6200006955 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = FFE848B02CA6B13A0092AD15 /* Products */;
 			projectDirPath = "";
@@ -206,10 +225,8 @@
 			files = (
 				FFC78CB02CADB11200FE1D9C /* ShopViewController.swift in Sources */,
 				FFC78CAE2CADB10100FE1D9C /* StyleViewController.swift in Sources */,
-				FFE848B32CA6B13A0092AD15 /* AppDelegate.swift in Sources */,
 				FFC78CB22CADB12600FE1D9C /* SavedViewController.swift in Sources */,
 				FFC42B7F2CB83E3B000B10F8 /* SavedCell.swift in Sources */,
-				FFE848B52CA6B13A0092AD15 /* SceneDelegate.swift in Sources */,
 				FFC42B7B2CB83DBF000B10F8 /* SavedView.swift in Sources */,
 				FFC42B7D2CB83DCE000B10F8 /* SavedModel.swift in Sources */,
 			);
@@ -339,6 +356,7 @@
 		};
 		FFE848C42CA6B13B0092AD15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF308D122D001E7A009F140E /* secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -416,12 +434,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FF3CB77D2D2E5E6200006955 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		FF6FD32E2CF48B93006B8B51 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.10.1;
+			};
+		};
+		FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.23.0;
 			};
 		};
 		FFC42C322CD49077000B10F8 /* XCRemoteSwiftPackageReference "Then" */ = {
@@ -443,10 +477,40 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FF3CB77E2D2E5E6200006955 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF3CB77D2D2E5E6200006955 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		FF6FD32F2CF48B93006B8B51 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FF6FD32E2CF48B93006B8B51 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FF6FD3322CF633AA006B8B51 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		FF6FD3342CF633AA006B8B51 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		FF6FD3362CF633AA006B8B51 /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		FF6FD3382CF633AA006B8B51 /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		FF6FD33A2CF633AA006B8B51 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF6FD3312CF633AA006B8B51 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
 		};
 		FFC42C332CD49077000B10F8 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

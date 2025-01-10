@@ -202,6 +202,11 @@ class LoginView: UIView {
         config.imagePadding = 10 // 텍스트와 이미지 간격 설정
         config.imagePlacement = .leading // 이미지 위치 (텍스트 앞쪽)
         
+        // 테두리 설정
+        config.background.strokeColor = .black  // 테두리 색상
+        config.background.strokeWidth = 0.2       // 테두리 두께
+        
+        
         btn.configuration = config
         btn.configurationUpdateHandler = { button in
             button.configuration?.image = UIImage(named: "kakaoIcon")
@@ -220,10 +225,15 @@ class LoginView: UIView {
         config.baseBackgroundColor = .white
         config.cornerStyle = .medium // 모서리 둥글기 설정
         
+        
         // 이미지 설정
         config.image = UIImage(named: "appleIcon")
         config.imagePadding = 10 // 텍스트와 이미지 간격 설정
         config.imagePlacement = .leading // 이미지 위치 (텍스트 앞쪽)
+        
+        // 테두리 설정
+        config.background.strokeColor = .black  // 테두리 색상
+        config.background.strokeWidth = 0.2       // 테두리 두께
         
         btn.configuration = config
         btn.configurationUpdateHandler = { button in

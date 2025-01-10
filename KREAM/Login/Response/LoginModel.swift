@@ -41,6 +41,7 @@ class LoginModel {
         userDefaults.removeObject(forKey: idKey)
         userDefaults.removeObject(forKey: pwdKey)
     }
+    
     // MARK: - 확장된 기능(API 사용하기 위한 사용자 정보인 User 구조체를 정의, Codable을 준수하여 JSON 형태로 인코딩)
     
     // 사용자 정보를 저장, User 객체를 JSON으로 인코딩하여 UserDefaults에 저장

@@ -8,13 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
-    private let rootView = HomeView()
     
-    // HomeModel과 HomeModel2의 더미 데이터 배열
-    private let homeItems = HomeModel.dummy()
-    private let homeItems2 = HomeModel2.dummy()
-    private let homeItems3 = HomeModel3.dummy()
-    
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +18,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         setupDelegate()
     }
     
+    //MARK: - Property
+    private lazy var rootView: HomeView = {
+        let rootView = HomeView()
+        rootView.backgroundColor = .white
+        rootView.onSearchBarTapped = { [weak self] in
+            print("Search bar tapped!") // 디버깅용 로그
+            self?.navigateToSearchViewController()
+        }
+        return rootView
+    }()
+    
+    // HomeModel과 HomeModel2의 더미 데이터 배열
+    private let homeItems = HomeModel.dummy()
+    private let homeItems2 = HomeModel2.dummy()
+    private let homeItems3 = HomeModel3.dummy()
     private func setupAction() {
         rootView.segmentedControl.addTarget(self,
                                             action: #selector(segmentedControlValueChanged(segment:)), for: .valueChanged)
-        
-    }
+            }
     
     private func setupDelegate() {
         rootView.homeCollectionView.dataSource = self
@@ -39,6 +48,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         rootView.HomeCollectionView3.delegate = self
     }
     
+    // navigation 방식으로 검색뷰 화면 전환
+    private func navigateToSearchViewController() {
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
+    }
     @objc
     private func segmentedControlValueChanged(segment: UISegmentedControl){
         if segment.selectedSegmentIndex == 0 {
